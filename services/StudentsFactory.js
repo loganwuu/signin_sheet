@@ -1,10 +1,10 @@
-AskExperts.factory('QuestionsFactory', function QuestionsFactory() {
+SignInSheet.factory('StudentsFactory', function StudentsFactory() {
   var factory = {};
-  factory.questions = [];
+  factory.students = [];
 
-  factory.addQuestion = function() {
-    factory.questions.push({ name: factory.questionName, id: factory.questions.length + 1, answers: [], answered: false });
-    factory.questionName = null;
+  factory.addStudent = function() {
+    factory.students.push({ name: factory.studentName, signedIn: true });
+    factory.studentName = null;
   };
 
   return factory;
