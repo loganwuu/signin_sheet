@@ -18,25 +18,34 @@
     </div>
 </nav>
 
-<div class="row" ng-show="students.length">
-    <div class="col-md-8">
-        <h1>Signed-in Students</h1>
-        <ul>
-          <li ng-repeat="item in students">
-            {{ item.name }} <button type="button" ng-click="signOut(item)" class="btn btn-warning">Sign out</button>
-          </li>
-        </ul>
-    </div>
+<div ng-show="!students.length">
+    <h1>There are no students signed in today.</h1>
 </div>
 
-<div class="row">
-    <div class="col-md-8">
-        <h1>Please Sign In</h1>
-        <form ng-submit="StudentsFactory.addStudent()" class="form-inline" role="form">
-            <div class="form-group">
-                <input type="text" ng-model="StudentsFactory.studentName" class="form-control" placeholder="Enter name" required>
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-        </form>
-    </div>
+<div ng-show="students.length">
+  <h1>Here are all of the students:</h1>
+  <ul>
+    <li ng-repeat="item in students">
+      {{ item.name }}
+    </li>
+  </ul>
+  <div class="row">
+      <div class="col-md-4" ng-show="students.length && factory.students.signedIn">
+          <h2>Signed In:</h2>
+          <ul>
+            <li ng-repeat="item in students ">
+              {{ item.name }}
+            </li>
+          </ul>
+      </div>
+
+      <div class="col-md-4" ng-show="students.length && !factory.students.signedIn">
+          <h2>Signed Out:</h2>
+          <ul>
+            <li ng-repeat="item in students ">
+              {{ item.name }}
+            </li>
+          </ul>
+      </div>
+  </div>
 </div>

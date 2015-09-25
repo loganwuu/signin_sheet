@@ -1,10 +1,6 @@
-SignInSheet.controller('SignInsCtrl', function SignInsCtrl($scope, $stateParams, StudentsFactory, UtilitiesFactory) {
-    $scope.student = UtilitiesFactory.findById(StudentsFactory.students, $stateParams.studentId);
-    $scope.signIn = function() {
-        
-    };
-
-    $scope.signOut = function() {
-
+SignInSheet.controller('SignInsCtrl', function SignInsCtrl($scope, StudentsFactory) {
+    $scope.student = StudentsFactory.students;
+    $scope.signOut = function(student) {
+        student.signedIn = false;
     };
 });

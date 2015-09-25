@@ -3,9 +3,14 @@ SignInSheet.factory('StudentsFactory', function StudentsFactory() {
   factory.students = [];
 
   factory.addStudent = function() {
-    factory.students.push({ name: factory.studentName, signedIn: true });
+    var student = ({ name: factory.studentName, signedIn: true });
+    factory.students.push(student);
     factory.studentName = null;
   };
+
+  // factory.signOut = function() {
+  //
+  // }
 
   return factory;
 });
