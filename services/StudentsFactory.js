@@ -4,6 +4,7 @@ SignInSheet.factory('StudentsFactory', function StudentsFactory() {
 
   factory.addStudent = function() {
     var student = ({ name: factory.studentName, signedIn: true, id: factory.students.length + 1});
+
     factory.students.push(student);
     factory.studentName = null;
   };
