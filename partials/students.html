@@ -1,0 +1,31 @@
+<div ng-show="!students.length">
+    <h1>There are no students signed in today.</h1>
+</div>
+
+<div ng-show="students.length">
+  <h1>Here are all of the students:</h1>
+  <ul>
+    <li ng-repeat="item in students">
+      {{ item.name }}
+    </li>
+  </ul>
+  <div class="row">
+      <div class="col-md-4" ng-show="students.length">
+          <h2>Signed In:</h2>
+          <ul>
+            <li ng-repeat="item in students | filter: { signedIn: true }">
+              {{ item.name }}
+            </li>
+          </ul>
+      </div>
+
+      <div class="col-md-4" ng-show="students.length">
+          <h2>Signed Out:</h2>
+          <ul>
+            <li ng-repeat="item in students | filter: { signedIn: false }">
+              {{ item.name }}
+            </li>
+          </ul>
+      </div>
+  </div>
+</div>
